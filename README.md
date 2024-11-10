@@ -22,7 +22,7 @@ getting started, the tech chosen, and more!
 
 ### Install Setup NVM, PNPM, and Dependencies
 
-I find (NVM)[https://github.com/nvm-sh/nvm] to be a great way to switch between node versions when working on multiple
+I find [NVM](https://github.com/nvm-sh/nvm) to be a great way to switch between node versions when working on multiple
 projects. Whether it's node v20, v18, or v8 NVM can quickly swap node versions!
 
 Once NVM is setup run the following:
@@ -33,7 +33,7 @@ npm i -g pnpm@^8
 pnpm install
 ```
 
-Alternatively, you can use (corepack)[https://github.com/nodejs/corepack] to manage your package management.
+Alternatively, you can use [corepack](https://github.com/nodejs/corepack) to manage your package management.
 
 After running `pnpm install` various lifecycle scripts will run to setup git-hooks and certificates to utilize https for
 the dev server.
