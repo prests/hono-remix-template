@@ -49,21 +49,6 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Install PNPM
-        uses: pnpm/action-setup@v4
-        with:
-          version: 8.6.3
-          run_install: false
-
-      - name: Install Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20.18.0
-          cache: 'pnpm'
-
-      - name: Use Cached Dependencies
-        run: pnpm install --frozen-lockfile --offline
-
       - name: Lint Check
         run: pnpm run lint
 
@@ -80,21 +65,6 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
-
-      - name: Install PNPM
-        uses: pnpm/action-setup@v4
-        with:
-          version: 8.6.3
-          run_install: false
-
-      - name: Install Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20.18.0
-          cache: 'pnpm'
-
-      - name: Use Cached Dependencies
-        run: pnpm install --frozen-lockfile --offline
 
       - name: Unit Tests
         run: pnpm run test
