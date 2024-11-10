@@ -1,17 +1,16 @@
-import { join } from 'node:path';
 import { Hono } from 'hono';
 import { remix } from 'remix-hono/handler';
 import type { AppLoadContext, ServerBuild } from '@remix-run/node';
 import { installGlobals } from '@remix-run/node';
 import { serveStatic } from '@hono/node-server/serve-static';
 import { serve } from '@hono/node-server';
-import { logger } from 'hono/logger';
 import { NONCE, secureHeaders } from 'hono/secure-headers';
 
 import { IS_PRODUCTION_MODE, MODE } from './constants/server.js';
 import { importDevBuild } from './dev-server.js';
-import type { Env } from './middleware/env.js';
-import { getEnv } from './middleware/env.js';
+import type { Env } from './env.server.js';
+import { getEnv } from './env.server.js';
+import { logger } from './logger.server.js';
 
 declare module '@remix-run/node' {
   interface AppLoadContext {
@@ -30,19 +29,29 @@ declare module '@remix-run/node' {
   }
 }
 
-const BUILD_DIR = join(process.cwd(), 'build');
-
 installGlobals();
 
 const env = getEnv();
 
 const app = new Hono();
 
-app.use('/assets/*', serveStatic({ root: join(BUILD_DIR, 'client') }));
+app.use('*', logger(env.npm_package_version));
 
-app.use('*', serveStatic({ root: IS_PRODUCTION_MODE ? './build/client' : './public' }));
+app.use(
+  '/assets/*',
+  serveStatic({
+    root: './build/client',
+    onFound: (_path, c) => c.header('Cache-Control', 'public, immutable, max-age=31536000'),
+  })
+);
 
-app.use('*', logger());
+app.use(
+  '*',
+  serveStatic({
+    root: IS_PRODUCTION_MODE ? './build/client' : './public',
+    onFound: (_path, c) => c.header('Cache-Control', 'public, max-age=3600'),
+  })
+);
 
 app.use(
   '*',
@@ -53,6 +62,9 @@ app.use(
       scriptSrc: ["'self'", "'strict-dynamic'", NONCE],
       styleSrc: ["'self'", NONCE],
     },
+    // Deprecated or not needed headers
+    xXssProtection: false,
+    xFrameOptions: false,
   })
 );
 
@@ -66,7 +78,7 @@ app.use(async (c, next) => {
     ? // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       // eslint-disable-next-line import/no-unresolved -- this expected until you build the app
-      await import('../build/server/index.js')
+      await import('../server/index.js')
     : await importDevBuild()) as unknown as ServerBuild;
 
   return remix({

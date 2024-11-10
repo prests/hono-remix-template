@@ -16,7 +16,7 @@
   "scripts": {
     "____ RUN COMMANDS ___": "",
     "dev": "vite",
-    "start": "node ./build/server.js --max-http-header-size 50000",
+    "start": "cross-env NODE_ENV=production dotenvx run -- node ./build/hono-server/server.js --max-http-header-size 50000",
     "start:docker": "docker run --rm -p 8080:8080 --env-file .env hono-remix-template",
     "____ BUILD COMMANDS ____": "",
     "build": "pnpm run clean:build && pnpm run build:remix && pnpm run build:server",
@@ -31,6 +31,7 @@
     "test:watch": "pnpm run clean:test && vitest watch --coverage=false",
     "test:watchcoverage": "pnpm run clean:test && vitest watch --coverage",
     "____ LINTING/FORMATTING COMMANDS ____": "",
+    "lint:all": "pnpm run lint && pnpm run format:verify && pnpm run typecheck",
     "lint": "eslint . --max-warnings=0",
     "lint:fix": "pnpm run lint -- --fix",
     "format": "prettier --write .",
@@ -63,6 +64,7 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@dotenvx/dotenvx": "^1.22.0",
     "@hono/vite-dev-server": "^0.16.0",
     "@remix-run/dev": "^2.13.1",
     "@remix-run/eslint-config": "^2.13.1",
@@ -72,6 +74,7 @@
     "@types/node": "^22.9.0",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
+    "cross-env": "^7.0.3",
     "eslint": "^8",
     "jsdom": "^25.0.1",
     "mkcert": "^3.2.0",
