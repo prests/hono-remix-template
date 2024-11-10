@@ -65,5 +65,7 @@ Most IDEs will take in the provided eslint and prettier configs and automaticall
 the following will check to make sure there are no styling issues:
 
 ```sh
-pnpm lint:all
+pnpm lint # eslint check
+pnpm format:verify # prettier check
+pnpm typecheck # typechecking
 ```

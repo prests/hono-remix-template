@@ -31,7 +31,6 @@
     "test:watch": "pnpm run clean:test && vitest watch --coverage=false",
     "test:watchcoverage": "pnpm run clean:test && vitest watch --coverage",
     "____ LINTING/FORMATTING COMMANDS ____": "",
-    "lint:all": "pnpm run lint && pnpm run format:verify && pnpm run typecheck",
     "lint": "eslint . --max-warnings=0",
     "lint:fix": "pnpm run lint -- --fix",
     "format": "prettier --write .",
