@@ -1,7 +1,8 @@
-import type { Context, Next } from 'hono';
 import { getPath } from 'hono/utils/url';
 
 import { getIPAddress } from './utils/request-helpers.server.js';
+
+import type { Context, Next } from 'hono';
 
 const logger =
   (appVersion: string, fn = console.log) =>

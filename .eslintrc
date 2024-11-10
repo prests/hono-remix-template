@@ -2,5 +2,35 @@
   "extends": [
     "@remix-run/eslint-config",
     "@remix-run/eslint-config/node"
-  ]
+  ],
+  "settings": {
+    "import/internal-regex": "^@example/"
+  },
+  "rules": {
+    "import/order": ["error", {
+      "named": true,
+      "newlines-between": "always",
+      "distinctGroup": true,
+      "warnOnUnassignedImports": true,
+      "groups": [
+        "builtin",
+        "external",
+        "internal",
+        "parent",
+        "sibling",
+        "type"
+      ],
+      "pathGroups": [
+        {
+          "pattern": "@example/**",
+          "group": "internal",
+          "position": "before"
+        }
+      ],
+      "alphabetize": {
+        "order": "asc",
+        "orderImportKind": "asc"
+      }
+    }]
+  }
 }

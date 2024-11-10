@@ -1,16 +1,17 @@
-import { Hono } from 'hono';
-import { remix } from 'remix-hono/handler';
-import type { AppLoadContext, ServerBuild } from '@remix-run/node';
-import { installGlobals } from '@remix-run/node';
-import { serveStatic } from '@hono/node-server/serve-static';
 import { serve } from '@hono/node-server';
+import { serveStatic } from '@hono/node-server/serve-static';
+import { installGlobals } from '@remix-run/node';
+import { Hono } from 'hono';
 import { NONCE, secureHeaders } from 'hono/secure-headers';
+import { remix } from 'remix-hono/handler';
 
 import { IS_PRODUCTION_MODE, MODE } from './constants/server.js';
 import { importDevBuild } from './dev-server.js';
-import type { Env } from './env.server.js';
 import { getEnv } from './env.server.js';
 import { logger } from './logger.server.js';
+
+import type { Env } from './env.server.js';
+import type { AppLoadContext, ServerBuild } from '@remix-run/node';
 
 declare module '@remix-run/node' {
   interface AppLoadContext {

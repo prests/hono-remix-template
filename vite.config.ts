@@ -1,9 +1,9 @@
 /// <reference types="vitest" />
 
+import devServer, { defaultOptions } from '@hono/vite-dev-server';
+import { vitePlugin as remix } from '@remix-run/dev';
 import { defineConfig } from 'vite';
 import { configDefaults } from 'vitest/config';
-import { vitePlugin as remix } from '@remix-run/dev';
-import devServer, { defaultOptions } from '@hono/vite-dev-server';
 
 export default defineConfig({
   server: {
