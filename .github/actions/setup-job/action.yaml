@@ -16,4 +16,5 @@ runs:
         cache: 'pnpm'
 
     - name: Use Cached Dependencies
+      shell: bash
       run: pnpm install --frozen-lockfile --offline --config.ignore-scripts=true

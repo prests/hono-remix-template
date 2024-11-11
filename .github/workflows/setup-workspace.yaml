@@ -39,5 +39,5 @@ jobs:
 
       - name: Install Dependencies (cache missing)
         if: steps.cache-deps.outputs.cache-hit != 'true'
-        run: pnpm install --frozen-lockfile --prefer-offline --config.ignore-scripts=true
         shell: bash
+        run: pnpm install --frozen-lockfile --prefer-offline --config.ignore-scripts=true
