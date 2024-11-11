@@ -4,7 +4,7 @@ on:
   workflow_call:
     outputs:
       cache-hit:
-        description: 'Indicates if cache was restored successfully'
+        description: Indicates if cache was restored successfully
 
 jobs:
   setup:

@@ -8,7 +8,7 @@ on:
 
 jobs:
   setup:
-    uses: ./.github/workflows/setup-workspace.yaml
+    uses: ./.github/workflows/setup-workspace.yaml@main
 
   linting:
     name: Run Linting, Formatting, and Typecheck
