@@ -3,9 +3,6 @@ description: Setup job environment and cached dependencies for reusability acros
 runs:
   using: 'composite'
   steps:
-    - name: Checkout Code
-      uses: actions/checkout@v4
-
     - name: Install PNPM
       uses: pnpm/action-setup@v4
       with:
