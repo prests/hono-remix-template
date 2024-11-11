@@ -6,7 +6,6 @@ on:
       - main
   schedule:
     - cron: '0 11 * * *' # Runs every day at 11:00 UTC (6:00 AM EST)
-  pull_request:
 
 jobs:
   setup:
