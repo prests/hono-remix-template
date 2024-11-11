@@ -9,7 +9,7 @@ on:
 
 jobs:
   setup:
-    uses: .github/workflows/setup-workspace.yaml
+    uses: ./.github/workflows/setup-workspace.yaml
 
   test:
     name: E2E Tests
@@ -22,9 +22,11 @@ jobs:
       - uses: ./.github/actions/setup-job
 
       - name: Install Playwright Browsers
+        shell: bash
         run: pnpm run postinstall:setup-playwright
 
       - name: Run E2e Tests
+        shell: bash
         run: pnpm run test:e2e
 
       - name: Upload E2E Report

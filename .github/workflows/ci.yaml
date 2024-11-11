@@ -8,7 +8,7 @@ on:
 
 jobs:
   setup:
-    uses: .github/workflows/setup-workspace.yaml
+    uses: ./.github/workflows/setup-workspace.yaml
 
   linting:
     name: Run Linting, Formatting, and Typecheck
@@ -21,12 +21,15 @@ jobs:
       - uses: ./.github/actions/setup-job
 
       - name: Lint Check
+        shell: bash
         run: pnpm run lint
 
       - name: Format Check
+        shell: bash
         run: pnpm run format:verify
 
       - name: Typecheck
+        shell: bash
         run: pnpm run typecheck
 
   Tests:
@@ -40,4 +43,5 @@ jobs:
       - uses: ./.github/actions/setup-job
 
       - name: Unit Tests
+        shell: bash
         run: pnpm run test
