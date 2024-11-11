@@ -8,7 +8,7 @@ on:
 
 jobs:
   setup:
-    uses: ./.github/workflows/setup-workspace.yaml@feat/playwright/setup
+    uses: ./.github/workflows/setup-workspace.yaml
 
   linting:
     name: Run Linting, Formatting, and Typecheck
