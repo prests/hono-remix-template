@@ -4,6 +4,7 @@ on:
   workflow_call:
     outputs:
       cache-hit:
+        value: ${{ jobs.setup.outputs.cache-hit }}
         description: Indicates if cache was restored successfully
 
 jobs:
