@@ -1,6 +1,16 @@
 import { Links, Meta, Outlet, Scripts, ScrollRestoration } from '@remix-run/react';
 
 import { useNonce } from './hooks/nonce';
+import stylexStylesheet from './main.css?url';
+
+import type { LinksFunction } from '@remix-run/node';
+
+const links: LinksFunction = () => [
+  {
+    rel: 'stylesheet',
+    href: stylexStylesheet,
+  },
+];
 
 const App = () => {
   const nonce = useNonce();
@@ -25,3 +35,4 @@ const App = () => {
 };
 
 export default App;
+export { links };

@@ -3,6 +3,7 @@
 import devServer, { defaultOptions } from '@hono/vite-dev-server';
 import { vitePlugin as remix } from '@remix-run/dev';
 import { defineConfig } from 'vite';
+import styleX from 'vite-plugin-stylex';
 import { configDefaults } from 'vitest/config';
 
 export default defineConfig({
@@ -29,7 +30,7 @@ export default defineConfig({
     devServer({
       injectClientScript: false,
       entry: 'src/hono-server/server.ts',
-      exclude: [...defaultOptions.exclude],
+      exclude: [...defaultOptions.exclude, /.*\.css\?url$/],
     }),
     !process.env.VITEST &&
       remix({
@@ -37,6 +38,9 @@ export default defineConfig({
         appDirectory: 'src/remix-app',
         serverModuleFormat: 'esm',
       }),
+    // @FIXME - Hit some strange type errors with this plugin, but seems to work fine
+    // @ts-ignore
+    styleX(),
   ],
   test: {
     include: ['./src/**/*.test.{ts,tsx}'],
