@@ -32,7 +32,7 @@ jobs:
         env:
           # Inject app secrets like API keys here from github secrets
           ABORT_DELAY: 5000
-          EXAMPLE_APP: Example App
+          APP_NAME: Example App
         run: |
           if [ "${{ github.event_name }}" == "schedule" ]; then
             # Normally would not be needed but we have no test environment in this template
