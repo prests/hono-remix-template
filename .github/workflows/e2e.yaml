@@ -29,8 +29,17 @@ jobs:
 
       - name: Run E2E Tests
         shell: bash
+        env:
+          # Inject app secrets like API keys here from github secrets
+          ABORT_DELAY: 5000
+          EXAMPLE_APP: Example App
         run: |
           if [ "${{ github.event_name }}" == "schedule" ]; then
+            # Normally would not be needed but we have no test environment in this template
+            sudo echo "127.0.0.1 local.example-test.com" | sudo tee -a /etc/hosts
+            pnpm run postinstall:setup-cert
+            # ----
+
             pnpm run test:e2e:test
           else
             sudo echo "127.0.0.1 local.example-test.com" | sudo tee -a /etc/hosts
