@@ -33,6 +33,7 @@ jobs:
           if [ "${{ github.event_name }}" == "schedule" ]; then
             pnpm run test:e2e:test
           else
+            pnpm run postinstall:setup-cert
             pnpm run test:e2e:local
           fi
 
