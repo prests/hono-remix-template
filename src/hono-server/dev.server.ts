@@ -16,6 +16,4 @@ const viteDevServer = IS_PRODUCTION_MODE
  */
 const getDevBuild = async () => viteDevServer?.ssrLoadModule('virtual:remix/server-build');
 
-const getDevMiddleware = () => viteDevServer?.middlewares;
-
-export { getDevBuild, getDevMiddleware };
+export { getDevBuild };

@@ -6,7 +6,7 @@ import { NONCE, secureHeaders } from 'hono/secure-headers';
 import { remix } from 'remix-hono/handler';
 
 import { IS_PRODUCTION_MODE, MODE } from './constants/server.js';
-import { getDevBuild } from './dev-server.js';
+import { getDevBuild } from './dev.server.js';
 import { getEnv } from './env.server.js';
 import { logger } from './logger.server.js';
 
