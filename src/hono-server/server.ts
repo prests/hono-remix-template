@@ -6,7 +6,7 @@ import { NONCE, secureHeaders } from 'hono/secure-headers';
 import { remix } from 'remix-hono/handler';
 
 import { IS_PRODUCTION_MODE, MODE } from './constants/server.js';
-import { importDevBuild } from './dev-server.js';
+import { getDevBuild } from './dev.server.js';
 import { getEnv } from './env.server.js';
 import { logger } from './logger.server.js';
 
@@ -80,7 +80,7 @@ app.use(async (c, next) => {
       // @ts-ignore
       // eslint-disable-next-line import/no-unresolved -- this expected until you build the app
       await import('../server/index.js')
-    : await importDevBuild()) as unknown as ServerBuild;
+    : await getDevBuild()) as unknown as ServerBuild;
 
   return remix({
     build,
