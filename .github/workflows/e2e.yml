@@ -9,7 +9,7 @@ on:
 
 jobs:
   setup:
-    uses: ./github/workflows/setup-workspace.yaml@feat/playwright/setup
+    uses: ./.github/workflows/setup-workspace.yaml@feat/playwright/setup
 
   test:
     name: E2E Tests
