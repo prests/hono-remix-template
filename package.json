@@ -30,6 +30,9 @@
     "test:visual": "pnpm run clean:test && vitest --ui",
     "test:watch": "pnpm run clean:test && vitest watch --coverage=false",
     "test:watchcoverage": "pnpm run clean:test && vitest watch --coverage",
+    "test:e2e": "playwright test",
+    "test:e2e:generate": "playwright codegen",
+    "test:e2e:ui": "pnpm run test:e2e --ui",
     "____ LINTING/FORMATTING COMMANDS ____": "",
     "lint": "eslint --ignore-path .gitignore --max-warnings=0 .",
     "lint:fix": "pnpm run lint --fix",
@@ -45,8 +48,9 @@
     "clean:cert": "rimraf .cert",
     "____ LIFECYCLE COMMANDS ____": "",
     "preinstall": "npx only-allow pnpm",
-    "postinstall": "pnpm run postinstall:setup-hooks && pnpm run postinstall:setup-cert",
+    "postinstall": "pnpm run postinstall:setup-hooks && pnpm run postinstall:setup-cert && pnpm postinstall:setup-playwright",
     "postinstall:setup-hooks": "git config core.hooksPath ./git-hooks",
+    "postinstall:setup-playwright": "playwright install --with-deps",
     "postinstall:setup-cert": "pnpm run clean:cert && mkdirp .cert && pnpm run cert:setup-ca && pnpm run cert:setup-crt",
     "cert:setup-ca": "mkcert create-ca --key \".cert/ca.key\" --cert \".cert/ca.crt\"",
     "cert:setup-crt": "mkcert create-cert --domains localhost,127.0.0.1,local.example-test.com --ca-key \".cert/ca.key\" --ca-cert \".cert/ca.crt\" --key \".cert/cert.key\" --cert \".cert/cert.crt\""
@@ -65,6 +69,7 @@
   "devDependencies": {
     "@dotenvx/dotenvx": "^1.22.0",
     "@hono/vite-dev-server": "^0.16.0",
+    "@playwright/test": "^1.48.2",
     "@remix-run/dev": "^2.13.1",
     "@remix-run/eslint-config": "^2.13.1",
     "@remix-run/testing": "^2.13.1",
