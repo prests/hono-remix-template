@@ -73,5 +73,6 @@ export default defineConfig({
     url: playwrightEnv.URL,
     reuseExistingServer: !playwrightEnv.USE_LOCAL_SERVER,
     ignoreHTTPSErrors: true,
+    stdout: 'pipe',
   },
 });

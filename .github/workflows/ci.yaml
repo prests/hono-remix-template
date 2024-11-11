@@ -18,7 +18,8 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - uses: ./.github/actions/setup-job
+      - name: Setup Job
+        uses: ./.github/actions/setup-job
 
       - name: Lint Check
         shell: bash
@@ -40,7 +41,8 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - uses: ./.github/actions/setup-job
+      - name: Setup Job
+        uses: ./.github/actions/setup-job
 
       - name: Unit Tests
         shell: bash
