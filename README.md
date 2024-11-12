@@ -1,5 +1,7 @@
 # Hono Remix Template
 
+![E2E Tests](https://github.com/prests/hono-remix-template/actions/workflows/e2e.yaml/badge.svg?branch=main&event=schedule)
+
 ## Overview
 
 This is an opinionated template for scaffolding a Remix application, powered by Hono! Below you'll find instructions on
