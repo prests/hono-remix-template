@@ -1,6 +1,8 @@
 # Hono Remix Template
 
-![E2E Tests](https://github.com/prests/hono-remix-template/actions/workflows/e2e.yaml/badge.svg?branch=main&event=schedule)
+![E2E Regression Tests](https://github.com/prests/hono-remix-template/actions/workflows/e2e.yaml/badge.svg?branch=main&event=schedule)
+![E2E Smoke Tests](https://github.com/prests/hono-remix-template/actions/workflows/e2e.yaml/badge.svg?branch=main&event=push)
+![CI Tests](https://github.com/prests/hono-remix-template/actions/workflows/ci.yaml/badge.svg?branch=main)
 
 ## Overview
 
