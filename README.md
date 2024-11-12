@@ -1,9 +1,4 @@
-# Hono Remix Template
-
-<div align="center">
-    <img src="https://github.com/prests/hono-remix-template/actions/workflows/e2e.yaml/badge.svg?branch=main&event=push" alt="E2E Tests" >
-    <img src="https://github.com/prests/hono-remix-template/actions/workflows/ci.yaml/badge.svg?branch=main" alt="CI Tests">
-</div>
+# Hono Remix Template &middot; [![E2E Tests](https://github.com/prests/hono-remix-template/actions/workflows/e2e.yaml/badge.svg?branch=main&event=push)](https://github.com/prests/hono-remix-template/actions/workflows/e2e.yaml?query=branch:main+event:push) [![CI Tests](https://github.com/prests/hono-remix-template/actions/workflows/ci.yaml/badge.svg?branch=main)](https://github.com/prests/hono-remix-template/actions/workflows/ci.yaml?query=branch:main+event:push)
 
 ## Overview
 
