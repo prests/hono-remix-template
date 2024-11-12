@@ -55,6 +55,7 @@
     "postinstall:setup-playwright": "playwright install --with-deps",
     "postinstall:setup-cert": "pnpm run clean:cert && mkdirp .cert && pnpm run cert:setup-ca && pnpm run cert:setup-crt",
     "cert:setup-ca": "mkcert create-ca --key \".cert/ca.key\" --cert \".cert/ca.crt\"",
+    "_comment:@UPDATE": "swap local.example-test.com to whatever domain you will be using",
     "cert:setup-crt": "mkcert create-cert --domains localhost,127.0.0.1,local.example-test.com --ca-key \".cert/ca.key\" --ca-cert \".cert/ca.crt\" --key \".cert/cert.key\" --cert \".cert/cert.crt\""
   },
   "dependencies": {

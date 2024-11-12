@@ -8,6 +8,7 @@ import { configDefaults } from 'vitest/config';
 
 export default defineConfig({
   server: {
+    // @UPDATE - rename host to whatever domain you're using
     host: 'local.example-test.com',
     port: 3_000,
     https: {
