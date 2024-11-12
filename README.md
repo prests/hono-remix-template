@@ -100,7 +100,10 @@ the dev server.
 ### Setting Up Localhost
 
 You'll need to modify your operating system's host file to include `local.example-test.com` this is helps with CORS and
-CSP issues that can come up when just using `localhost` or `127.0.0.1`
+CSP issues that can come up when just using `localhost` or `127.0.0.1`.
+
+> 💡 **Note:** If you want to build off of this template for your own project, then you'll need to set the host file
+> value to the domain of your app instead of `local.example-test.com`.
 
 ### Setting Up Environment Variables
 
