@@ -117,13 +117,13 @@ pnpm dev
 
 ## Testing
 
-To run unit/integration tests run the following:
+- **Unit/Integration Tests:** Run the following to test individual components or functions in isolation:
 
 ```sh
 pnpm test
 ```
 
-To run end-to-end (E2E) test run the following:
+- **End-to-End (E2E) Tests:** Run the following to simulate user interactions across different browsers:
 
 ```sh
 pnpm test:e2e:local
