@@ -7,6 +7,10 @@ looking to scaffold a performant web app quickly.
 
 If you’re familiar with these tools, you'll feel right at home, and if not, I hope this setup makes it easy to dive in!
 
+> 💡 **Note:** Most of this template is grab and go, but there are a few areas that would need to be updated to be
+> production ready. I marked areas that would need updating with `@UPDATE`. You can grep this project to find what needs
+> to be updated.
+
 ## Overview of Chosen Technologies
 
 Below I've laid out the technologies used in this project and some back stories behind them. These are just tools that
@@ -40,6 +44,13 @@ creating a fast dev experience (Vite), automating quality checks (GitHub Actions
   building your own design system from scratch.
 - [StyleX](https://stylexjs.com/docs/learn/) - fresh take on styling in JavaScript, offering new tools to make styling
   easier and more modular.
+
+> ⚠️ **Caution:** Radix currently uses inline styles which results in a needing a weaker CSP policy. I have been trying
+> to get some traction on changing this. If top notch security is a deciding factor, you may want to pick another
+> library here or roll your own.
+>
+> If you want to use Radix **and** want to see them become more CSP conscious please interact with
+> [my discussion](https://github.com/radix-ui/primitives/discussions/3130) to help boost priority.
 
 Each of these choices was made to create a responsive, SEO-friendly, and scalable front end, with flexibility for UI and
 styling so you can adapt as project requirements evolve.
@@ -89,7 +100,10 @@ the dev server.
 ### Setting Up Localhost
 
 You'll need to modify your operating system's host file to include `local.example-test.com` this is helps with CORS and
-CSP issues that can come up when just using `localhost` or `127.0.0.1`
+CSP issues that can come up when just using `localhost` or `127.0.0.1`.
+
+> 💡 **Note:** If you want to build off of this template for your own project, then you'll need to set the host file
+> value to the domain of your app instead of `local.example-test.com`.
 
 ### Setting Up Environment Variables
 
