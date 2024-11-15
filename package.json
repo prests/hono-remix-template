@@ -60,6 +60,7 @@
   },
   "dependencies": {
     "@hono/node-server": "^1.13.5",
+    "@radix-ui/react-slot": "^1.1.0",
     "@remix-run/node": "^2.13.1",
     "@remix-run/react": "^2.13.1",
     "@stylexjs/stylex": "^0.9.3",

@@ -1,5 +1,9 @@
 # Hono Remix Template &middot; [![E2E Tests](https://github.com/prests/hono-remix-template/actions/workflows/e2e.yaml/badge.svg?branch=main&event=push)](https://github.com/prests/hono-remix-template/actions/workflows/e2e.yaml?query=branch:main+event:push) [![CI Tests](https://github.com/prests/hono-remix-template/actions/workflows/ci.yaml/badge.svg?branch=main)](https://github.com/prests/hono-remix-template/actions/workflows/ci.yaml?query=branch:main+event:push)
 
+> 📢 **Shoutout:** A lot of initial inspiration came from
+> [rphlmr's remix-hono-vite template](https://github.com/rphlmr/remix-hono-vite). Go check out their template too for
+> more inspiration!
+
 This opinionated template combines the power of Remix for server-side rendering and the lightweight Hono framework to
 make building and deploying full-stack apps simple and efficient. It’s set up with sensible defaults for modern
 development practices, including testing, CI/CD, type safety, and consistent code formatting. Perfect for developers
@@ -76,6 +80,18 @@ small parts and the overall behavior of your app.
 
 This set of tools not only helps keep the codebase error-free but also ensures consistency, which is especially
 important when multiple developers are contributing.
+
+### State Management
+
+You might be wondering why this template doesn't come with preconfigured state management. In my experience, developers
+often reach for a state manager too quickly, loading it up with more than they need. I prefer to go as far as possible
+using built-in state management options, like search parameters and simple React contexts, before adding a dedicated
+state manager.
+
+If you do find yourself needing more advanced state management, I've had good experiences with
+[Zustand](https://zustand.docs.pmnd.rs/getting-started/introduction) and [Redux Toolkit](https://redux-toolkit.js.org/).
+Redux got a lot of criticism in the past, but Redux Toolkit has made it both powerful and approachable—it might surprise
+you!
 
 ## Setup
 
