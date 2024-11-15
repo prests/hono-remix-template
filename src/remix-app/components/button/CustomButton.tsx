@@ -4,6 +4,13 @@ import { type ButtonHTMLAttributes, forwardRef } from 'react';
 
 import { tokens } from '../../theme/theme.stylex';
 
+/**
+ * This button comes straight from shadcn's button. I simply converted the tailwind utility classes to stylex syntax
+ *
+ * https://ui.shadcn.com/docs/components/button
+ *
+ */
+
 interface CustomButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   asChild?: boolean;
 }
