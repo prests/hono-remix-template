@@ -4,10 +4,17 @@ import { createReadableStreamFromReadable } from '@remix-run/node';
 import { RemixServer } from '@remix-run/react';
 import { isbot } from 'isbot';
 import { renderToPipeableStream } from 'react-dom/server';
+import { renderHeadToString } from 'remix-island';
 
+import { Head } from './Document';
 import NonceProvider from './hooks/nonce';
 
 import type { AppLoadContext, EntryContext } from '@remix-run/node';
+
+const CLOSING_HTML = '</div></body></html>' as const;
+
+const generateOpeningHTML = (nonce: string, headStr: string) =>
+  `<!DOCTYPE html><html><head><meta charSet="utf-8" nonce="${nonce}" />${headStr}</head><body><div id="root">`;
 
 const handleRequest = (
   request: Request,
@@ -36,6 +43,7 @@ const handleBotRequest = (
       {
         onAllReady() {
           shellRendered = true;
+          const headStr = renderHeadToString({ request, remixContext, Head });
           const body = new PassThrough();
           const stream = createReadableStreamFromReadable(body);
 
@@ -48,7 +56,9 @@ const handleBotRequest = (
             })
           );
 
+          body.write(generateOpeningHTML(loadContext.nonce, headStr));
           pipe(body);
+          body.write(CLOSING_HTML);
         },
         onShellError(error: unknown) {
           reject(error);
@@ -84,6 +94,7 @@ const handleBrowserRequest = (
       {
         onShellReady() {
           shellRendered = true;
+          const headStr = renderHeadToString({ request, remixContext, Head });
           const body = new PassThrough();
           const stream = createReadableStreamFromReadable(body);
 
@@ -96,7 +107,9 @@ const handleBrowserRequest = (
             })
           );
 
+          body.write(generateOpeningHTML(loadContext.nonce, headStr));
           pipe(body);
+          body.write(CLOSING_HTML);
         },
         onShellError(error: unknown) {
           reject(error);
