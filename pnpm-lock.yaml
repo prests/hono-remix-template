@@ -35,6 +35,9 @@ dependencies:
   remix-hono:
     specifier: ^0.0.16
     version: 0.0.16(typescript@5.4.5)(zod@3.23.8)
+  remix-island:
+    specifier: ^0.2.0
+    version: 0.2.0(@remix-run/react@2.13.1)(@remix-run/server-runtime@2.13.1)(react-dom@18.3.1)(react@18.3.1)
   zod:
     specifier: ^3.23.8
     version: 3.23.8
@@ -6743,6 +6746,20 @@ packages:
       zod: 3.23.8
     transitivePeerDependencies:
       - typescript
+    dev: false
+
+  /remix-island@0.2.0(@remix-run/react@2.13.1)(@remix-run/server-runtime@2.13.1)(react-dom@18.3.1)(react@18.3.1):
+    resolution: {integrity: sha512-NujWtmulgupxNOMiWKAj8lg56eYsy09aV/2pML8rov8N8LmY1UnSml4XYad+KHLy/pgZ1D9UxAmjI6GBJydTUg==}
+    peerDependencies:
+      '@remix-run/react': '>= 1'
+      '@remix-run/server-runtime': '>= 1'
+      react: '>= 16.8'
+      react-dom: '>= 16.8'
+    dependencies:
+      '@remix-run/react': 2.13.1(react-dom@18.3.1)(react@18.3.1)(typescript@5.4.5)
+      '@remix-run/server-runtime': 2.13.1(typescript@5.4.5)
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
     dev: false
 
   /require-like@0.1.2:
